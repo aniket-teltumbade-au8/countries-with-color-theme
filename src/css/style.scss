@@ -1,0 +1,65 @@
+.container {
+    height: 100vh;
+    header.container-header {
+        display: flex;
+        justify-content: space-between;
+        h1.container-header-title {
+            vertical-align: middle;
+            margin-left: 5.21%;
+        }
+        h3.container-header-theme {
+            vertical-align: middle;
+            .container-header-theme--title {
+            }
+        }
+    }
+    section.container-tools {
+        display: flex;
+        justify-content: space-between;
+        .container-tools-search {
+            margin-left: 5.21%;
+            input {
+            }
+        }
+        select {
+        }
+    }
+    section.container-countries {
+        width: 100%;
+        height: 80vh;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-content: space-around;
+
+        .container-country {
+            width: 18.45%;
+            border-radius: 2%;
+            overflow: hidden;
+            &:nth-child(1),
+            &:nth-child(5) {
+                margin-left: 2.6%;
+            }
+            @for $i from 1 through 8 {
+                @if $i % 4 == 0 {
+                    &:nth-child(#{$i}) {
+                        margin-right: 2.6%;
+                    }
+                }
+            }
+            img {
+                width: 100%;
+            }
+            h3,
+            p {
+                padding-left: 15px;
+            }
+            p {
+                margin: 3% auto;
+                span {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}

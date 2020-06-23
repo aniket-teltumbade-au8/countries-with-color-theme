@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "style-light.scss"
+    ],
+    "names": [],
+    "file": "style-light.css"
+}
