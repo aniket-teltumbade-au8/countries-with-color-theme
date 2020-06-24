@@ -1,3 +1,8 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+*{
+    font-family: 'Nunito Sans', sans-serif;
+}
 $sm: 750px;
 @mixin device($media) {
     @if $media == mobile {
@@ -28,7 +33,7 @@ h3 {
                 vertical-align: middle;
                 .icon {
                     vertical-align: middle;
-                    margin: 10px;
+                    height:100%;
                 }
             }
         }

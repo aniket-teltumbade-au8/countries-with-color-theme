@@ -1,53 +1,26 @@
+
+$BlueLightText: hsl(200, 15%, 8%);
+$GrayLightInput: hsl(0, 0%, 52%);
+$GrayLightBackground: rgb(250, 250, 250);
+$LightElements: hsl(0, 0%, 100%) ;
 .wrapper{
-    box-shadow: 0 4px 12px 0px rgba(0,0,0,0.2);    
+    box-shadow: 0 4px 12px 0px rgba(0,0,0,0.2);  
+    background: $LightElements;  
 }
 .container {
-    header.container-header {
-        h1.container-header-title {
-        }
-        .container-header-theme {
-            h3.container-header-theme-title {
-                .icon {
-                }
-            }
-        }
-    }
+    color: $BlueLightText;
+    background: $GrayLightBackground;
     section.container-tools {
         .container-tools-search {
-            .icon {
-            }
+            color:$GrayLightInput;
             input {
-                &:focus {
-                }
+                color:$GrayLightInput;
             }
         }
         .container-tools-filter {
-            &:hover .container-tools-filter-dropdown{
-            }
             .container-tools-filter-dropdown {
+                color:$GrayLightInput;
                 background: white;
-            }
-        }
-    }
-    section.container-countries {
-        .container-country {
-            &:nth-child(1),
-            &:nth-child(5) {
-            }
-            @for $i from 1 through 8 {
-                @if $i % 4 == 0 {
-                    &:nth-child(#{$i}) {
-                    }
-                }
-            }
-            img {
-            }
-            h3,
-            p {
-            }
-            p {
-                span {
-                }
             }
         }
     }
