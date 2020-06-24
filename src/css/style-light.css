@@ -1,1 +1,9 @@
-/* No CSS *//*# sourceMappingURL=style-light.css.map */
+.wrapper {
+  -webkit-box-shadow: 0 4px 12px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 12px 0px rgba(0, 0, 0, 0.2);
+}
+
+.container section.container-tools .container-tools-filter .container-tools-filter-dropdown {
+  background: white;
+}
+/*# sourceMappingURL=style-light.css.map */

@@ -2,28 +2,48 @@
     header.container-header {
         h1.container-header-title {
         }
-        h3.container-header-theme {
-            .container-header-theme--title {
+        .container-header-theme {
+            h3.container-header-theme-title {
+                .icon {
+                }
             }
         }
     }
     section.container-tools {
-        input {
+        .container-tools-search {
+            .icon {
+            }
+            input {
+                &:focus {
+                }
+            }
         }
-        select {
+        .container-tools-filter {
+            &:hover .container-tools-filter-dropdown{
+            }
+            .container-tools-filter-dropdown {
+            }
         }
     }
     section.container-countries {
         .container-country {
+            &:nth-child(1),
+            &:nth-child(5) {
+            }
+            @for $i from 1 through 8 {
+                @if $i % 4 == 0 {
+                    &:nth-child(#{$i}) {
+                    }
+                }
+            }
             img {
             }
-            .container-country--name {
+            h3,
+            p {
             }
-            .container-country--populatoin {
-            }
-            .container-country--region {
-            }
-            .container-country--capital {
+            p {
+                span {
+                }
             }
         }
     }
