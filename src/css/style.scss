@@ -1,7 +1,6 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
-*{
-    font-family: 'Nunito Sans', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+* {
+    font-family: "Nunito Sans", sans-serif;
 }
 $sm: 750px;
 @mixin device($media) {
@@ -16,10 +15,32 @@ $sm: 750px;
         }
     }
 }
+
+body {
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+    min-width: 100% !important;
+    box-sizing: border-box;
+}
+
+.loader {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(./../img/829.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+}
 h3 {
     margin: 10px auto;
 }
 .container {
+    padding: 0;
+    margin: 0;
+    min-width: 100% !important;
+    box-sizing: border-box;
     .container-header {
         display: flex;
         justify-content: space-between;
@@ -33,7 +54,7 @@ h3 {
                 vertical-align: middle;
                 .icon {
                     vertical-align: middle;
-                    height:100%;
+                    height: 100%;
                 }
             }
         }
@@ -99,6 +120,7 @@ h3 {
             .icon {
                 float: right;
                 padding-right: 5.21%;
+                margin-top: 10%;
             }
             &:hover .container-tools-filter-dropdown {
                 display: block;
@@ -121,6 +143,7 @@ h3 {
     }
     section.container-countries {
         width: 100%;
+        padding-bottom: 50px;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
@@ -138,8 +161,8 @@ h3 {
                 } */
             }
             @include device(desktop) {
-                margin-top: 10px;
-                margin-bottom: 10px;
+                margin-top: 20px;
+                margin-bottom: 20px;
                 &:nth-child(1),
                 &:nth-child(5) {
                     margin-left: 2.6%;
@@ -155,9 +178,6 @@ h3 {
             }
             border-radius: 2%;
             overflow: hidden;
-            img {
-                width: 100%;
-            }
             h3,
             p {
                 padding-left: 15px;
@@ -171,9 +191,86 @@ h3 {
             &--capital {
                 padding-bottom: 10px;
             }
+            &--flag {
+                width: 100%;
+                @include device(mobile) {
+                    height: 200px;
+                }
+                @include device(desktop) {
+                    height: 150px;
+                }
+                background-position: center;
+                background-size: auto 150px;
+                background-origin: border-box;
+                img {
+                    width: 100%;
+                    overflow: hidden;
+                    height: 100%;
+                }
+            }
+        }
+        .container-countries-single {
+            @include device(mobile) {
+                margin-top: 2vh;
+                width: 89%;
+            }
+        }
+        .container-countries-single--flag {
+            @include device(desktop) {
+                margin-top: 10vh;
+                width: 31.7%;
+            }
+            img {
+                width: 100%;
+            }
+        }
+        .container-countries-single--info {
+            span {
+                font-weight: 700;
+            }
+            ul {
+                list-style: none;
+                padding-left: 0;
+                @include device(mobile) {
+                    width: 100%;
+                }
+                @include device(desktop) {
+                    width: 50%;
+                }
+
+                position: relative;
+                float: left;
+                vertical-align: middle;
+            }
+            .last-list {
+                width: 100%;
+                li {
+                    &:first-child {
+                        @include device(mobile) {
+                            display: block;
+                        }
+                    }
+                    &:first-child {
+                        @include device(desktop) {
+                            display: inline;
+                        }
+                    }
+                    &:not(:first-child) {
+                        display: inline;
+                        margin: 10px;
+                        padding: 5px;
+                    }
+                }
+            }
+
+            @include device(desktop) {
+                margin-top: 10vh;
+                width: 47.4%;
+            }
         }
     }
 }
+
 /* 
 @include device(desktop){}
 @include device(mobile){}
