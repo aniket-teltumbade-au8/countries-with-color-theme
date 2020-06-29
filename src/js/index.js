@@ -54,7 +54,7 @@ function displaySingleCountry(singleCountry) {
             src="${country.flag}" alt="">
     </div>
     <div class="container-countries-single container-countries-single--info">
-        <h2>${country.name}</h2>
+        <div class="container-countries-single--heading">${country.name}</div>
         <ul>
             <li><span>Native Name:</span>${country.nativeName}</li>
             <li><span>Population:</span>${formatNumber(country.population)}</li>
@@ -114,11 +114,15 @@ document.querySelector(".container-tools-back").addEventListener("click",functio
   let resTpe=loc[1];
   let resName=loc.substring(2);
   console.log(resTpe)
+  main.innerHTML=""
   if(resTpe=="s"){
     searchCountries(resName);
   }
-  if(resTpe=="f"){
+  else if(resTpe=="f"){
     filterCountries(resName);
+  }
+  else{
+  initial();
   }
   
   document.querySelector(".container-tools-back").style.display="none";
@@ -147,3 +151,13 @@ function filterCountries(target){
   });
 
 }
+const toggleBtn = document.querySelector("#toggle-theme");
+toggleBtn.addEventListener('click', (e) => {
+  console.log("Switching theme");
+  if (document.documentElement.hasAttribute('theme')) {
+      document.documentElement.removeAttribute('theme');
+  }
+  else {
+      document.documentElement.setAttribute('theme', 'dark');
+  }
+});

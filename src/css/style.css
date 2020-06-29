@@ -1,6 +1,75 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
-* {
-  font-family: "Nunito Sans", sans-serif;
+@font-face {
+  font-family: "Font Awesome 5 Free";
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url("./../fonts/fa-solid-900.eot");
+  src: url("./../fonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("./../fonts/fa-solid-900.woff2") format("woff2"), url("./../fonts/fa-solid-900.woff") format("woff"), url("./../fonts/fa-solid-900.ttf") format("truetype"), url("./../fonts/fa-solid-900.svg#fontawesome") format("svg");
+}
+
+:root {
+  /* Light */
+  --elements: hsl(0, 0%, 100%);
+  --background: rgb(250, 250, 250);
+  --text: hsl(200, 15%, 8%);
+  --input: hsl(0, 0%, 52%);
+}
+
+:root[theme="dark"] {
+  /* Dark */
+  --elements: hsl(209, 23%, 22%);
+  --background: hsl(207, 26%, 17%);
+  --text: hsl(0, 0%, 100%);
+  --input: hsl(0, 0%, 100%);
+}
+
+.f-ico::before {
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+.f-moon::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f186";
+}
+
+/* .f-moon::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f186";
+} */
+.f-search::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f002";
+}
+
+.f-back::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f30a";
+}
+
+.container-tools-filter .f-arrow::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f107";
+}
+
+.wrapper {
+  -webkit-box-shadow: 0 4px 12px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 12px 0px rgba(0, 0, 0, 0.2);
+  background: var(--elements);
+}
+
+.container-tools-filter:hover .f-arrow::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f106";
 }
 
 body {
@@ -30,8 +99,16 @@ h3 {
   padding: 0;
   margin: 0;
   min-width: 100% !important;
+  color: var(--text);
+  background: var(--background);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+@media only screen and (min-width: 751px) {
+  .container {
+    height: 100vh;
+  }
 }
 
 .container .container-header {
@@ -136,6 +213,8 @@ h3 {
   margin: 0;
   border: 0;
   padding-left: 10.6%;
+  color: var(--input);
+  background: var(--elements);
 }
 
 .container .container-tools-search input:focus {
@@ -143,14 +222,13 @@ h3 {
   box-shadow: 0 0 0 white !important;
   -moz-box-shadow: 0 0 0 white !important;
   -webkit-box-shadow: 0 0 0 white !important;
-  outline-offset: 0px !important;
-  outline: none !important;
+  outline-o: 0px !important;
+  outline: none rtant;
 }
 
 .container .container-tools-back {
   margin-top: 1%;
   margin-left: 5.21%;
-  width: 10%;
   line-height: 50px;
   height: 50px !important;
   vertical-align: middle;
@@ -159,7 +237,30 @@ h3 {
   display: none;
 }
 
+@media only screen and (max-width: 750px) {
+  .container .container-tools-back {
+    width: 25%;
+  }
+}
+
+@media only screen and (min-width: 751px) {
+  .container .container-tools-back {
+    width: 25%;
+  }
+}
+
+@media only screen and (min-width: 751px) {
+  .container .container-tools-back {
+    width: 10%;
+  }
+}
+
+.container .container-tools-back .icon::before {
+  margin-right: 5px;
+}
+
 .container .container-tools-filter {
+  color: var(--input);
   margin-left: 5.55%;
 }
 
@@ -192,7 +293,7 @@ h3 {
 .container .container-tools-filter .icon {
   float: right;
   padding-right: 5.21%;
-  margin-top: 10%;
+  margin-top: 0%;
 }
 
 .container .container-tools-filter:hover .container-tools-filter-dropdown {
@@ -354,6 +455,20 @@ h3 {
   width: 100%;
 }
 
+.container section.container-countries .container-countries-single--info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.container section.container-countries .container-countries-single--info .container-countries-single--heading {
+  width: 100%;
+  font-weight: 900;
+  font-size: 2em;
+}
+
 .container section.container-countries .container-countries-single--info span {
   font-weight: 700;
 }
@@ -381,7 +496,12 @@ h3 {
 @media only screen and (min-width: 751px) {
   .container section.container-countries .container-countries-single--info ul {
     width: 50%;
+    height: 20vh;
   }
+}
+
+.container section.container-countries .container-countries-single--info ul li {
+  margin: 10px auto;
 }
 
 .container section.container-countries .container-countries-single--info .last-list {
@@ -391,12 +511,14 @@ h3 {
 @media only screen and (max-width: 750px) {
   .container section.container-countries .container-countries-single--info .last-list li:first-child {
     display: block;
+    margin-bottom: 20px;
   }
 }
 
 @media only screen and (min-width: 751px) {
   .container section.container-countries .container-countries-single--info .last-list li:first-child {
     display: block;
+    margin-bottom: 20px;
   }
 }
 
@@ -408,8 +530,25 @@ h3 {
 
 .container section.container-countries .container-countries-single--info .last-list li:not(:first-child) {
   display: inline;
-  margin: 10px;
   padding: 5px;
+}
+
+@media only screen and (max-width: 750px) {
+  .container section.container-countries .container-countries-single--info .last-list li:not(:first-child) {
+    margin: 20px;
+  }
+}
+
+@media only screen and (min-width: 751px) {
+  .container section.container-countries .container-countries-single--info .last-list li:not(:first-child) {
+    margin: 20px;
+  }
+}
+
+@media only screen and (min-width: 751px) {
+  .container section.container-countries .container-countries-single--info .last-list li:not(:first-child) {
+    margin: 10px;
+  }
 }
 
 @media only screen and (min-width: 751px) {
