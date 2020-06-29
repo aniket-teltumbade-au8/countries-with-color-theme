@@ -147,6 +147,18 @@ h3 {
   outline: none !important;
 }
 
+.container .container-tools-back {
+  margin-top: 1%;
+  margin-left: 5.21%;
+  width: 10%;
+  line-height: 50px;
+  height: 50px !important;
+  vertical-align: middle;
+  border-radius: 5px;
+  padding-bottom: 0;
+  display: none;
+}
+
 .container .container-tools-filter {
   margin-left: 5.55%;
 }

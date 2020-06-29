@@ -12,28 +12,13 @@ initial();
 
 document.querySelector("#search").addEventListener("keyup",function(event){
 console.log(this.value)
-if(this.value!=""){
-  const fetchSearchPromise = fetch("https://restcountries.eu/rest/v2/name/"+this.value);
-  fetchSearchPromise.then(response => {
-    return response.json();
-  }).then(countries => {
-    main.innerHTML="";
-    main.insertAdjacentHTML("afterbegin",displayCountries(countries,8));
-  });
-}
+searchCountries(this.value);
 event.preventDefault();
   })
   document.querySelector("#filter").addEventListener("click",function(event){
+    window.location.hash="f"+event.target.innerHTML;
     console.log(event.target.innerHTML)
-    let target=event.target.innerHTML;
-      const fetchFilterPromise = fetch("https://restcountries.eu/rest/v2/region/"+target);
-      fetchFilterPromise.then(response => {
-        return response.json();
-      }).then(countries => {
-        main.innerHTML="";
-        main.insertAdjacentHTML("afterbegin",displayCountries(countries,8));
-      });
-    
+    filterCountries(event.target.innerHTML);
    // event.preventDefault();
       })
 
@@ -60,7 +45,6 @@ document.querySelector(".loader").style.display="block";
 </div>`).join("\n");
 document.querySelector(".loader").style.display="none";  
   return `${names}`
-
 }
 function displaySingleCountry(singleCountry) {
   
@@ -105,7 +89,9 @@ function formatNumber(num){
 }
 document.querySelector("section.container-countries").addEventListener("click",function(event){
   console.log(event.target.closest(".container-country").getAttribute("data-attr"))
-  
+  document.querySelector(".container-tools-search").style.display="none";
+  document.querySelector(".container-tools-filter").style.display="none";
+  document.querySelector(".container-tools-back").style.display="block";
 let target=event.target.closest(".container-country").getAttribute("data-attr");
  // alert("hey");
   const fetchFilterPromise = fetch(`https://restcountries.eu/rest/v2/name/${target}?fullText=true`);
@@ -120,3 +106,44 @@ let target=event.target.closest(".container-country").getAttribute("data-attr");
 window.addEventListener("DOMContentLoaded",function(){
    // document.querySelector(".loader").style.display="none";  
 })
+document.querySelector(".container-tools-back").addEventListener("click",function(){
+  document.querySelector(".container-tools-search").style.display="block";
+  document.querySelector(".container-tools-filter").style.display="block";
+ 
+  let loc=window.location.hash;
+  let resTpe=loc[1];
+  let resName=loc.substring(2);
+  console.log(resTpe)
+  if(resTpe=="s"){
+    searchCountries(resName);
+  }
+  if(resTpe=="f"){
+    filterCountries(resName);
+  }
+  
+  document.querySelector(".container-tools-back").style.display="none";
+})
+function searchCountries(target){
+  if(target!=""){
+    window.location.hash="s"+target;
+    const fetchSearchPromise = fetch("https://restcountries.eu/rest/v2/name/"+target);
+    fetchSearchPromise.then(response => {
+      return response.json();
+    }).then(countries => {
+      main.innerHTML="";
+      main.insertAdjacentHTML("afterbegin",displayCountries(countries,8));
+    });
+  }
+}
+function filterCountries(target){
+  
+  const fetchFilterPromise = fetch("https://restcountries.eu/rest/v2/region/"+target);
+  fetchFilterPromise.then(response => {
+    return response.json();
+  }).then(countries => {
+    main.innerHTML="";
+
+    main.insertAdjacentHTML("afterbegin",displayCountries(countries,8));
+  });
+
+}
