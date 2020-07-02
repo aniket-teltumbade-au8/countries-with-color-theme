@@ -338,7 +338,7 @@ h3 {
                 }
                 @include device(desktop) {
                     width: 50%;
-                    height: 20vh;
+                    height: 18vh;
                 }
 
                 position: relative;
@@ -363,10 +363,10 @@ h3 {
                         }
                     }
                     &:not(:first-child) {
-                        display: inline;
+                        display: inline-block;
                         padding: 5px;
                         @include device(mobile) {
-                            margin: 20px;
+                            margin: 5px;
                         }
                         @include device(desktop) {
                             margin: 10px;
